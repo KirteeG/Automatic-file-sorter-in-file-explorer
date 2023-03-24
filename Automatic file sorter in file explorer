@@ -1,0 +1,16 @@
+# Automatic file sorter in file explorer
+import os, shutil
+path = r"..."
+file_name = os.listdir(path)
+folder_names = ['csv file', 'sql file', 'pbix file']
+
+for file in os.listdir(path):
+    if ".csv" in file and not os.path.exists(path + "csv file/" + file):
+        os.makedirs(path + "csv file")
+        shutil.move(path + file, path + "csv file/" + file )
+    elif ".sql" in file and not os.path.exists(path + "sql file/" + file):
+        os.makedirs(path + "sql file")
+        shutil.move(path + file, path + "sql file/" + file )
+    elif ".pbix" in file and not os.path.exists(path + "pbix file/" + file):
+        os.makedirs(path + "pbix file")
+        shutil.move(path + file, path + "pbix file/" + file )
